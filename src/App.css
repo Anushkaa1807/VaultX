@@ -1,0 +1,978 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0d0b14;
+  color: #f5f2ff;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 245px;
+  min-height: 100vh;
+  padding: 30px 19px;
+  background: #13101d;
+  border-right: 1px solid #292438;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 25px;
+  margin: 0 0 55px 8px;
+  font-weight: 800;
+}
+
+.brand span {
+  color: #a88aff;
+}
+
+.nav-label, .eyebrow {
+  color: #80788f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
+.nav-label {
+  margin: 0 0 15px 10px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 9px;
+  margin-bottom: 7px;
+  background: transparent;
+  color: #aaa3b9;
+  text-align: left;
+  font-size: 13px;
+}
+
+.nav-item.active, .nav-item:hover {
+  color: white;
+  background: #29213c;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.security-card {
+  padding: 17px;
+  border: 1px solid #39304e;
+  border-radius: 12px;
+  background: #1d182a;
+}
+
+.security-card h4 {
+  font-size: 12px;
+}
+
+.security-card p {
+  color: #958da5;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.profile {
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 0 48px 50px;
+}
+
+.topbar {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #282333;
+  color: #aaa2b7;
+  font-size: 12px;
+}
+
+.local-status {
+  color: #70dba9;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 44px 0 35px;
+}
+
+.eyebrow {
+  color: #a78aff;
+}
+
+.welcome h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(27px, 4vw, 38px);
+  letter-spacing: -1.5px;
+}
+
+.welcome h1 span {
+  color: #9a74ff;
+}
+
+.subtitle, .section-heading p {
+  color: #968da5;
+  font-size: 13px;
+}
+
+.welcome-symbol {
+  font-size: 72px;
+  color: #8060cb;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stat-card {
+  padding: 21px;
+  border: 1px solid #302940;
+  border-radius: 13px;
+  background: #171320;
+}
+
+.stat-card p {
+  color: #a49caf;
+  font-size: 12px;
+}
+
+.stat-card h2 {
+  font-size: 23px;
+}
+
+.stat-card small {
+  color: #777083;
+  font-size: 10px;
+}
+
+.status-text {
+  color: #70dba9;
+}
+
+.vault-section {
+  margin-top: 45px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.add-button {
+  padding: 12px 17px;
+  border: 0;
+  border-radius: 8px;
+  background: #8056ed;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.add-button:hover {
+  background: #956fff;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 25px 0 15px;
+  padding: 0 15px;
+  height: 47px;
+  border: 1px solid #352d43;
+  border-radius: 9px;
+  background: #171320;
+  color: #a48bdb;
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+  font-size: 12px;
+}
+
+.search-box input::placeholder {
+  color: #716a7e;
+}
+
+.password-list {
+  border: 1px solid #302940;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #171320;
+}
+
+.password-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 78px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #302940;
+}
+
+.password-row:last-child {
+  border-bottom: 0;
+}
+
+.site-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 11px;
+  background: #302347;
+  color: #c2aaff;
+  font-weight: 700;
+}
+
+.site-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.site-details strong, .site-details small {
+  display: block;
+}
+
+.site-details strong {
+  font-size: 12px;
+}
+
+.site-details small {
+  margin-top: 5px;
+  color: #938ba1;
+  font-size: 10px;
+}
+
+.password-value {
+  width: 140px;
+  overflow: hidden;
+  color: #b6aeca;
+  font-size: 11px;
+  text-overflow: ellipsis;
+}
+
+.visibility-button {
+  border: 0;
+  background: transparent;
+  color: #a88aff;
+  font-size: 11px;
+}
+
+.category-tag {
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: #29213b;
+  color: #b8a0ed;
+  font-size: 10px;
+}
+
+.empty-state, .demo-note {
+  color: #938ba1;
+  font-size: 11px;
+  padding: 15px;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    width: 190px;
+  }
+
+  .main-content {
+    padding: 0 22px 35px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 65px;
+    padding: 20px 8px;
+  }
+
+  .brand {
+    font-size: 0;
+  }
+
+  .brand span {
+    font-size: 20px;
+  }
+
+  .nav-label, .security-card, .profile {
+    display: none;
+  }
+
+  .nav-item {
+    font-size: 0;
+    justify-content: center;
+  }
+
+  .main-content {
+    padding: 0 12px 25px;
+  }
+
+  .password-value, .category-tag {
+    display: none;
+  }
+}
+
+/* VAULTX MODAL FIX */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 5, 12, 0.85);
+  backdrop-filter: blur(7px);
+}
+
+.password-modal {
+  width: min(460px, calc(100vw - 40px));
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 30px;
+  border: 1px solid #40344f;
+  border-radius: 16px;
+  background: #191422;
+  color: #f4efff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+.password-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.password-modal label {
+  color: #d9cdec;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.password-modal input,
+.password-modal select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #40354f;
+  border-radius: 9px;
+  background: #100d18;
+  color: white;
+}
+
+.password-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.password-input-group input {
+  flex: 1;
+  min-width: 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.cancel-button,
+.save-button {
+  padding: 12px 18px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: transparent;
+  color: white;
+  border: 1px solid #494052;
+}
+
+.save-button {
+  background: #9566f7;
+  color: white;
+  border: 1px solid #9566f7;
+}
+
+
+/* ===== VAULTX MODAL STYLING ===== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 5, 12, 0.82);
+  backdrop-filter: blur(7px);
+}
+
+.password-modal {
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 30px;
+  border: 1px solid #40344f;
+  border-radius: 16px;
+  background: #191422;
+  color: #f4efff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+.modal-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.modal-heading h2 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 23px;
+}
+
+.modal-heading p {
+  margin: 0;
+  color: #aa9cbd;
+  font-size: 13px;
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  color: #c5b4df;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.password-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.password-modal label {
+  margin-top: 9px;
+  color: #d9cdec;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.password-modal input,
+.password-modal select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #40354f;
+  border-radius: 9px;
+  outline: none;
+  background: #100d18;
+  color: white;
+  font-size: 14px;
+}
+
+.password-modal input:focus,
+.password-modal select:focus {
+  border-color: #9566f7;
+  box-shadow: 0 0 0 3px rgba(149, 102, 247, 0.15);
+}
+
+.password-modal input::placeholder {
+  color: #766b87;
+}
+
+.password-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.password-input-group input {
+  flex: 1;
+  min-width: 0;
+}
+
+.field-action {
+  padding: 12px;
+  border: 1px solid #40354f;
+  border-radius: 8px;
+  background: #292039;
+  color: #c5aaff;
+  cursor: pointer;
+}
+
+.generate-button {
+  align-self: flex-start;
+  padding: 8px 0;
+  border: none;
+  background: transparent;
+  color: #b493ff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  color: #d1baff;
+}
+
+.form-error {
+  margin: 5px 0;
+  color: #ff8585;
+  font-size: 13px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.cancel-button,
+.save-button {
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-button {
+  border: 1px solid #494052;
+  background: transparent;
+  color: #d0c5df;
+}
+
+.save-button {
+  border: 1px solid #9566f7;
+  background: #9566f7;
+  color: white;
+}
+
+.save-button:hover {
+  background: #8050e8;
+}
+
+.cancel-button:hover {
+  background: #292039;
+}
+
+/* ===== DELETE PASSWORD BUTTON ===== */
+
+.password-row .delete-button {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 107, 129, 0.35) !important;
+  border-radius: 8px;
+  background: transparent !important;
+  color: #ff6b81 !important;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.password-row .delete-button:hover {
+  background: rgba(255, 107, 129, 0.12) !important;
+  border-color: #ff6b81 !important;
+  color: #ff8b9c !important;
+}
+
+/* ===== RESPONSIVE MODAL ===== */
+
+@media (max-width: 520px) {
+  .password-modal {
+    padding: 22px;
+  }
+
+  .modal-actions {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* ===== VAULTX TEXT COLOR UPDATE ===== */
+
+/* Welcome heading */
+.welcome h1 {
+  color: #f4efff !important;
+}
+
+.welcome h1 span {
+  color: #a879ff !important;
+}
+
+/* Statistics labels */
+.stat-card p {
+  color: #cbbce8 !important;
+}
+
+/* Total passwords number */
+.stat-card:nth-child(1) h2 {
+  color: #b58aff !important;
+}
+
+/* Storage number */
+.stat-card:nth-child(3) h2 {
+  color: #b58aff !important;
+}
+
+/* Statistics descriptions */
+.stat-card small {
+  color: #a99abb !important;
+}
+
+/* Keep Preview status green */
+.stat-card .status-text {
+  color: #55e6ad !important;
+}
+/* ===== VAULT BRAND COLOR ===== */
+
+.brand {
+  color: #f4efff !important;
+}
+
+.brand span {
+  color: #a879ff !important;
+}
+/* =========================
+   VAULTX AUTHENTICATION SCREEN
+   ========================= */
+
+.auth-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 30px 30px;
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+
+      circle at 50% 35%,
+      rgba(149, 102, 247, 0.12),
+      transparent 45%
+    ),
+    #0b0910;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 40px;
+  box-sizing: border-box;
+
+  background: #15111d;
+  border: 1px solid #30253f;
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(149, 102, 247, 0.05);
+}
+
+/* Logo */
+
+.auth-card .brand {
+  margin: 0 0 35px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+}
+
+.auth-card .brand span {
+  color: #9566f7;
+}
+
+/* Heading */
+
+.auth-card h2 {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Description */
+
+.auth-card > p {
+  margin: 0 0 28px;
+  text-align: center;
+  color: #a99bbd;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Form layout */
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Labels */
+
+.auth-card form label {
+  margin-top: 6px;
+  color: #d8cce8;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Inputs */
+
+.auth-card form input {
+  width: 100%;
+  padding: 14px 15px;
+  box-sizing: border-box;
+
+  background: #0e0b14;
+  color: #ffffff;
+
+  border: 1px solid #382b49;
+  border-radius: 10px;
+
+  font-size: 14px;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.auth-card form input::placeholder {
+  color: #766783;
+}
+
+.auth-card form input:focus {
+  border-color: #9566f7;
+  box-shadow: 0 0 0 3px rgba(149, 102, 247, 0.15);
+}
+
+/* Unlock / Create button */
+
+.auth-card .save-button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+
+  background: linear-gradient(135deg, #9566f7, #7748df);
+  color: #ffffff;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.auth-card .save-button:hover {
+  background: linear-gradient(135deg, #a47aff, #8858ed);
+  box-shadow: 0 5px 20px rgba(149, 102, 247, 0.25);
+  transform: translateY(-1px);
+}
+
+.auth-card .save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error message */
+
+.auth-card .form-error {
+  padding: 10px 12px;
+  background: rgba(255, 107, 129, 0.08);
+  border: 1px solid rgba(255, 107, 129, 0.2);
+  border-radius: 8px;
+  color: #ff8585;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Master password hint */
+
+.auth-card .auth-hint {
+  margin: 5px 0;
+  color: #9585a9;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Smaller windows */
+
+@media (max-width: 500px) {
+  .auth-screen {
+    padding: 18px;
+  }
+
+  .auth-card {
+    padding: 28px 22px;
+  }
+
+  .auth-card .brand {
+    font-size: 30px;
+    margin-bottom: 28px;
+  }
+
+  .auth-card h2 {
+    font-size: 22px;
+  }
+}
+/* =========================
+   TOPBAR ACTIONS
+   ========================= */
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-left: auto;
+}
+
+/* Vault unlocked status */
+
+.local-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #70dba9;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Lock vault button */
+
+.lock-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  background: rgba(149, 102, 247, 0.12);
+  color: #c9b2ff;
+
+  border: 1px solid rgba(149, 102, 247, 0.35);
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition: all 0.2s ease;
+}
+
+.lock-button:hover {
+  background: #9566f7;
+  color: #ffffff;
+  border-color: #9566f7;
+  box-shadow: 0 4px 15px rgba(149, 102, 247, 0.2);
+}
+
+.lock-button:active {
+  transform: scale(0.97);
+}
+/* AUTH SCREEN SWITCH */
+.auth-card .auth-switch {
+  margin: 18px 0 0;
+  text-align: center;
+  color: #a99bbd;
+  font-size: 14px;
+}
+
+.auth-card .auth-switch button {
+  padding: 0;
+  margin-left: 5px;
+  border: none;
+  background: transparent;
+  color: #a879ff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-card .auth-switch button:hover {
+  color: #c4a5ff;
+  text-decoration: underline;
+}
